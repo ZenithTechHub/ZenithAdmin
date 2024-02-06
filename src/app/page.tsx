@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 const Home = () => {
@@ -7,14 +8,6 @@ const Home = () => {
 
   return (
     <main className="sm:flex sm:flex-col sm:gap-6 sm:w-full">
-      <div>
-        {data === null && (
-          <button onClick={() => signIn("github")}>signIn</button>
-        )}
-
-        {data !== null && <button onClick={() => signOut()}>signOut</button>}
-      </div>
-
       <strong>Status: {status}</strong>
 
       <ul>

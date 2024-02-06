@@ -1,0 +1,13 @@
+@media (min-width: 0px) {
+  .body-l {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.4375rem;
+  }
+
+  .heading-m {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.1875rem;
+  }
+}

@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: ["./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
@@ -17,6 +17,9 @@ const config: Config = {
         "red-hover": "#FF9898",
         "very-dark-grey-dark-bg": "#20212C",
         white: "#FFFFFF",
+      },
+      fontFamily: {
+        "plus-jakarta-sans": "var(--font-plus-jakarta-sans)",
       },
     },
     screens: {
