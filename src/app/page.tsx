@@ -2,7 +2,7 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 
-export const Home = () => {
+const Home = () => {
   const { data, status, update } = useSession();
 
   return (
