@@ -30,7 +30,7 @@ const config: Config = {
       lg: "907.5px",
     },
   },
-  plugins: [],
+  plugins: [require("@headlessui/tailwindcss")],
 };
 
 export default config;
