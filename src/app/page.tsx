@@ -3,6 +3,8 @@
 import React from "react";
 import { Tab, Transition } from "@headlessui/react";
 import { twMerge } from "tailwind-merge";
+import { AdminPanels } from "@/components/AdminPanels/AdminPanels";
+import { Header } from "@/components/Header/Header";
 import { SideBar } from "@/components/SideBar/SideBar";
 import { AdminTabsContext } from "@/contexts/AdminTabs/AdminTabs";
 
@@ -23,24 +25,17 @@ const Home = () => {
     >
       <SideBar />
 
-      <Tab.Panels>
-        <Tab.Panel>
-          <Tab.Group>
-            <Tab.List>
-              <Tab>Tab 1</Tab>
-              <Tab>Tab 2</Tab>
-              <Tab>Tab 3</Tab>
-            </Tab.List>
-            <Tab.Panels>
-              <Tab.Panel>Content 1</Tab.Panel>
-              <Tab.Panel>Content 2</Tab.Panel>
-              <Tab.Panel>Content 3</Tab.Panel>
-            </Tab.Panels>
-          </Tab.Group>
-        </Tab.Panel>
-        <Tab.Panel>Content 2</Tab.Panel>
-        <Tab.Panel>Content 3</Tab.Panel>
-      </Tab.Panels>
+      <div className="sm:grid sm:grid-cols-1 sm:grid-rows-[auto_1fr] sm:w-full">
+        <Header />
+
+        <Tab.Panels>
+          <AdminPanels.Products />
+
+          <Tab.Panel>Content 2</Tab.Panel>
+
+          <Tab.Panel>Content 3</Tab.Panel>
+        </Tab.Panels>
+      </div>
     </Tab.Group>
   );
 };
