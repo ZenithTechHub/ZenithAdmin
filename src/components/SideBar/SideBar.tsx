@@ -7,17 +7,13 @@ import PNGPlaceholder from "#/PNG/placeholder.png";
 
 export const SideBar = () => (
   <TabHU.List
+    as="aside"
     className={twMerge(
       "sm:hidden",
       "md:bg-dark-grey md:border-r-[0.0625rem] md:border-r-lines-dark md:grid md:grid-cols-1 md:grid-rows-[auto_1fr_auto] sm:items-start md:w-full",
     )}
   >
-    <div
-      className={twMerge(
-        "sm:flex sm:h-20 sm:items-center sm:px-6 sm:w-full",
-        "lg:h-24",
-      )}
-    >
+    <div className="sm:flex sm:h-20 sm:items-center sm:px-6 sm:w-full">
       <Image
         alt="Logo"
         className="sm:h-6 sm:object-contain sm:w-auto"
