@@ -24,10 +24,8 @@ const config: Config = {
     },
     screens: {
       sm: "0px",
-      smA: "508.125px",
-      md: "641.25px",
-      mdA: "774.375px",
-      lg: "907.5px",
+      smB: "641.25px",
+      md: "907.5px",
     },
   },
   plugins: [require("@headlessui/tailwindcss")],

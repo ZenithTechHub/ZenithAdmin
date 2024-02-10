@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
@@ -10,7 +8,7 @@ export const Header = () => (
   <header
     className={twMerge(
       "sm:bg-dark-grey sm:gap-4 sm:grid sm:grid-cols-[auto_1fr_auto] sm:h-16 sm:items-center sm:px-4 sm:w-full",
-      "md:border-b-[0.0625rem] md:border-b-lines-dark md:gap-6 md:grid-cols-[1fr_auto] md:min-h-20 md:px-6",
+      "md:border-b-[0.0625rem] md:border-b-lines-dark md:gap-6 md:grid-cols-[1fr_auto] md:min-h-24 md:px-6",
     )}
   >
     <Image
