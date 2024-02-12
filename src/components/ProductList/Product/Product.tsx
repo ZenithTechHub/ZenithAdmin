@@ -18,50 +18,31 @@ export const Product = ({
   propsImage,
   status,
 }: ProductProps) => (
-  <article className="">
+  <article className="sm:bg-dark-grey sm:w-full sm:flex sm:text-white sm:gap-5 sm:px-6 sm:py-4 sm:flex-shrink-0">
     <Image
+      className="sm:h-16 sm:object-cover sm:flex-shrink-0 sm:w-16"
       {...propsImage}
-      height={70}
-      width={150}
+      height={64}
+      width={128}
     />
 
-    <div
-      className={twMerge(
-        "sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full",
-      )}
-    >
+    <div className="sm:flex sm:items-center sm:justify-start sm:text-center sm:from-neutral-50 sm:w-full">
       {name}
     </div>
 
-    <div
-      className={twMerge(
-        "sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full",
-      )}
-    >
+    <div className="sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full">
       {price}
     </div>
 
-    <div
-      className={twMerge(
-        "sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full",
-      )}
-    >
+    <div className="sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full">
       {category}
     </div>
 
-    <div
-      className={twMerge(
-        "sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full",
-      )}
-    >
+    <div className="sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full">
       {status}
     </div>
 
-    <div
-      className={twMerge(
-        "sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full",
-      )}
-    >
+    <div className="sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full">
       {count}
     </div>
   </article>

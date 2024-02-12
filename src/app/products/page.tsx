@@ -1,3 +1,5 @@
+"use client";
+
 import { twMerge } from "tailwind-merge";
 import { Filters } from "@/components/Filters/Filters";
 import { ProductList } from "@/components/ProductList/ProductList";
