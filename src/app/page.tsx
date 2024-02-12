@@ -1,5 +1,3 @@
-import Produtos from "./products/page";
-
-const Home = () => <Produtos />;
+const Home = () => <main></main>;
 
 export default Home;

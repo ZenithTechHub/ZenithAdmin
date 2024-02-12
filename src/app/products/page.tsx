@@ -1,12 +1,12 @@
 import { twMerge } from "tailwind-merge";
 import { Filters } from "@/components/Filters/Filters";
-import { ProductList } from "@/components/TableItem/TableItem";
+import { ProductList } from "@/components/ProductList/ProductList";
 
 const products = [
   {
-    background: {
+    propsImage: {
       alt: "",
-      src: "/balde.webp",
+      src: "/products-placeholder/balde.webp",
     },
     category: "Limpeza",
     count: 25,
@@ -15,9 +15,9 @@ const products = [
     status: "Ativo",
   },
   {
-    background: {
+    propsImage: {
       alt: "",
-      src: "/mop.jpg",
+      src: "/products-placeholder/mop.jpg",
     },
     category: "Limpeza",
     count: 12,
@@ -26,9 +26,9 @@ const products = [
     status: "Ativo",
   },
   {
-    background: {
+    propsImage: {
       alt: "",
-      src: "/kit-escolar.webp",
+      src: "/products-placeholder/kit-escolar.webp",
     },
     category: "Material escolar",
     count: 30,
@@ -37,9 +37,9 @@ const products = [
     status: "Ativo",
   },
   {
-    background: {
+    propsImage: {
       alt: "",
-      src: "/caixas.jpg",
+      src: "/products-placeholder/caixas.jpg",
     },
     category: "Embalagens",
     count: 200,
