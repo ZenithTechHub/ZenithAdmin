@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { LayoutClient } from "@/app/LayoutClient";
+import { Header } from "@/components/Header/Header";
+import { SideBar } from "@/components/SideBar/SideBar";
 import "react-indiana-drag-scroll/dist/style.css";
 import "@/app/globals.css";
 import "@/app/typography.css";
@@ -27,10 +29,19 @@ export default function RootLayout({
       <body
         className={twMerge(
           plusJakartaSans.variable,
-          "sm:flex sm:h-dvh sm:w-full",
+          "sm:grid sm:grid-cols-1 sm:grid-rows-1 sm:h-dvh sm:w-full",
+          "md:grid-cols-[18.75rem_1fr]",
         )}
       >
-        <LayoutClient>{children}</LayoutClient>
+        <LayoutClient>
+          <SideBar />
+
+          <div className="sm:grid sm:grid-cols-1 sm:grid-rows-[auto_1fr] sm:h-full sm:w-full">
+            <Header />
+
+            {children}
+          </div>
+        </LayoutClient>
       </body>
     </html>
   );

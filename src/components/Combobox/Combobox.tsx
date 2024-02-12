@@ -84,7 +84,7 @@ const Options = React.forwardRef<HTMLUListElement, OptionsProps>(
     <ComboboxHU.Options
       {...props}
       className={twMerge(
-        "sm:absolute sm:bg-dark-grey sm:-bottom-2 sm:flex sm:flex-col sm:gap-2 sm:max-h-96 sm:overflow-y-auto sm:p-4 sm:rounded-lg sm:translate-y-full sm:w-full",
+        "sm:absolute sm:bg-dark-grey sm:-bottom-2 sm:flex sm:flex-col sm:gap-2 sm:max-h-32 sm:overflow-y-auto sm:p-4 sm:rounded-lg sm:translate-y-full sm:w-full",
         className,
       )}
       ref={ref}

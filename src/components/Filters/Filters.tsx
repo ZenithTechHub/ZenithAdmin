@@ -11,9 +11,7 @@ export const Filters = () => (
 
       <Categories />
 
-      <div>
-        <ScrollContainer></ScrollContainer>
-      </div>
+      <div></div>
     </section>
   </form>
 );

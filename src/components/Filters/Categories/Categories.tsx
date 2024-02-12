@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { RadioGroup } from "@headlessui/react";
 import { BookA, ChevronDown } from "lucide-react";
@@ -33,9 +35,6 @@ const mock = [
 ];
 
 export const Categories = () => {
-  // This state defines which parameter to use when assembling the list of category buttons
-  const [parameter, setParameter] = React.useState<"QUERY" | "VALUE">("QUERY");
-
   const { control, register, setValue, watch } = useFilter();
 
   const query = watch("category-query") || "";
@@ -48,35 +47,20 @@ export const Categories = () => {
       )
     );
 
-  const values =
-    parameter === "VALUE" ?
-      value === "" ?
-        mock
-      : mock.filter((category) =>
-          category.toLocaleLowerCase().includes(value.toLocaleLowerCase()),
-        )
-    : query === "" ? mock
-    : mock.filter((category) =>
-        category.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
-      );
-
   React.useEffect(() => {
-    setParameter("QUERY");
-  }, [query]);
+    setValue("category-query", value);
+  }, [value]);
 
   return (
     <div
       className={twMerge(
         "sm:flex sm:flex-col sm:items-start sm:gap-3 sm:w-full",
-        "lg:flex-row lg:items-center",
+        "md:flex-row md:items-center",
       )}
     >
       <Combobox
-        className="lg:max-w-80"
-        onChange={(event: string) => {
-          setValue("category-value", event);
-          setParameter("VALUE");
-        }}
+        className="md:max-w-80"
+        onChange={(event: string) => setValue("category-value", event)}
         value={value}
       >
         <Combobox.Label>Filtrar Lista de Categorias.</Combobox.Label>
@@ -124,7 +108,7 @@ export const Categories = () => {
             </RadioGroup.Label>
 
             <ScrollContainer className="sm:flex sm:gap-3 sm:items-center sm:select-none sm:w-full">
-              {values.map((category, index) => (
+              {selection.map((category, index) => (
                 <RadioGroup.Option
                   as={Button}
                   className={twMerge(
