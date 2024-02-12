@@ -37,13 +37,13 @@ const button = tv({
   variants: {
     size: {
       RESPONSIVE: twMerge(
-        "sm:font-bold sm:min-h-10 sm:px-4 sm:text-[0.8125rem] sm:leading-[1.4375rem]",
-        "md:font-bold md:min-h-12 md:px-6 md:text-[0.9375rem] md:leading-[1.1875rem]",
+        "sm:font-bold sm:h-10 sm:px-4 sm:text-[0.8125rem] sm:leading-[1.4375rem]",
+        "md:font-bold md:h-12 md:px-6 md:text-[0.9375rem] md:leading-[1.1875rem]",
       ),
       LARGE:
-        "sm:font-bold sm:min-h-12 sm:px-6 sm:text-[0.9375rem] sm:leading-[1.1875rem]",
+        "sm:font-bold sm:h-12 sm:px-6 sm:text-[0.9375rem] sm:leading-[1.1875rem]",
       SMALL:
-        "sm:font-bold sm:min-h-10 sm:px-4 sm:text-[0.8125rem] sm:leading-[1.4375rem]",
+        "sm:font-bold sm:h-10 sm:px-4 sm:text-[0.8125rem] sm:leading-[1.4375rem]",
     },
     color: {
       DESTRUCTIVE: "sm:bg-red sm:text-white sm:hover:bg-red-hover",

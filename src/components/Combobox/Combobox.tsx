@@ -44,6 +44,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         "body-l",
         "sm:duration-200 sm:ease-in-out sm:bg-dark-grey sm:border-[#828FA340] sm:border-[0.0625rem] sm:h-10 sm:py-2 sm:px-4 sm:pr-14 sm:rounded sm:text-white sm:transition-colors sm:w-full",
         "sm:focus:border-main-purple",
+        "sm:placeholder:text-[#FFFFFF40]",
         className,
       )}
       ref={ref}
