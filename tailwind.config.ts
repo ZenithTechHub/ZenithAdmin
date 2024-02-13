@@ -28,7 +28,7 @@ const config: Config = {
       md: "907.5px",
     },
   },
-  plugins: [require("@headlessui/tailwindcss")],
+  plugins: [require("@headlessui/tailwindcss"), require("daisyui")],
 };
 
 export default config;
