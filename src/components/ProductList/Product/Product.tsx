@@ -1,49 +1,65 @@
 import Image, { ImageProps } from "next/image";
 import { twMerge } from "tailwind-merge";
+import { Product as ProductType } from "@/lib/schema";
+import { currency } from "@/utils/formater";
+import PNGPlaceholder from "#/PNG/placeholder.png";
 
-export type ProductProps = {
-  propsImage: ImageProps;
-  category: string;
-  count: number;
-  name: string;
-  price: number;
-  status: string;
-};
+export type ProductProps = ProductType & {};
 
 export const Product = ({
-  category,
-  count,
-  name,
+  active,
+  description,
   price,
-  propsImage,
-  status,
+  promotion_price,
+  quantity_in_stock,
+  title,
 }: ProductProps) => (
-  <article className="sm:bg-dark-grey sm:w-full sm:flex sm:text-white sm:gap-5 sm:px-6 sm:py-4 sm:flex-shrink-0">
-    <Image
-      className="sm:h-16 sm:object-cover sm:flex-shrink-0 sm:w-16"
-      {...propsImage}
-      height={64}
-      width={128}
-    />
+  <tr className="sm:w-full">
+    <td>
+      <span className="sm:border-l-[0.0625rem] sm:flex sm:rounded-l">
+        <Image
+          alt="Placeholder"
+          className="sm:h-12 sm:object-cover sm:flex-shrink-0 sm:w-12"
+          height={48}
+          placeholder="blur"
+          src={PNGPlaceholder}
+          width={48}
+        />
+      </span>
+    </td>
 
-    <div className="sm:flex sm:items-center sm:justify-start sm:text-center sm:from-neutral-50 sm:w-full">
-      {name}
-    </div>
+    <td>
+      <span className="sm:flex">{title}</span>
+    </td>
+    <td>
+      <span className="sm:flex">{description}</span>
+    </td>
 
-    <div className="sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full">
-      {price}
-    </div>
+    <td>
+      <span className="sm:flex sm:gap-2 sm:text-white">
+        <strong
+          className={twMerge(
+            promotion_price !== null && "sm:line-through sm:text-medium-grey",
+          )}
+        >
+          {currency(price || 0)}
+        </strong>
 
-    <div className="sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full">
-      {category}
-    </div>
+        {promotion_price !== null && (
+          <strong className="sm:no-underline sm:text-white">
+            {currency(promotion_price)}
+          </strong>
+        )}
+      </span>
+    </td>
 
-    <div className="sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full">
-      {status}
-    </div>
-
-    <div className="sm:flex sm:items-center sm:justify-center sm:text-center sm:from-neutral-50 sm:w-full">
-      {count}
-    </div>
-  </article>
+    <td>
+      <span className="sm:flex">{active}</span>
+    </td>
+    <td>
+      <span className="sm:border-r-[0.0625rem] sm:flex sm:rounded-r">
+        {quantity_in_stock}
+      </span>
+    </td>
+  </tr>
 );

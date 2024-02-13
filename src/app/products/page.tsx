@@ -3,53 +3,7 @@
 import { twMerge } from "tailwind-merge";
 import { Filters } from "@/components/Filters/Filters";
 import { ProductList } from "@/components/ProductList/ProductList";
-
-const products = [
-  {
-    propsImage: {
-      alt: "",
-      src: "/products-placeholder/balde.webp",
-    },
-    category: "Limpeza",
-    count: 25,
-    name: "Balde lindo demais",
-    price: 49.49,
-    status: "Ativo",
-  },
-  {
-    propsImage: {
-      alt: "",
-      src: "/products-placeholder/mop.jpg",
-    },
-    category: "Limpeza",
-    count: 12,
-    name: "Esfregão mop",
-    price: 78.25,
-    status: "Ativo",
-  },
-  {
-    propsImage: {
-      alt: "",
-      src: "/products-placeholder/kit-escolar.webp",
-    },
-    category: "Material escolar",
-    count: 30,
-    name: "Kit escolar",
-    price: 120,
-    status: "Ativo",
-  },
-  {
-    propsImage: {
-      alt: "",
-      src: "/products-placeholder/caixas.jpg",
-    },
-    category: "Embalagens",
-    count: 200,
-    name: "Caixas de papelão",
-    price: 2,
-    status: "Ativo",
-  },
-];
+import { products } from "@/lib/mock";
 
 const Products = () => (
   <main

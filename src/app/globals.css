@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .body-l {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.4375rem;
+  }
+
+  .body-m {
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 0.9375rem;
+  }
+
+  .heading-l {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.4375rem;
+  }
+
+  .heading-m {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.1875rem;
+  }
+
+  .heading-s {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    line-height: 0.9375rem;
+  }
+}
+
 * {
   box-sizing: border-box;
   font-family: var(--font-plus-jakarta-sans);
