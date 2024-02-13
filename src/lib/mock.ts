@@ -1,4 +1,4 @@
-import { Product } from "@/lib/schema";
+import { Product } from "@/lib/product/schema";
 
 export const products: Product[] = [
   {

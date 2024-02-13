@@ -1,6 +1,6 @@
 import Image, { ImageProps } from "next/image";
 import { twMerge } from "tailwind-merge";
-import { Product as ProductType } from "@/lib/schema";
+import { Product as ProductType } from "@/lib/product/schema";
 import { currency } from "@/utils/formater";
 import PNGPlaceholder from "#/PNG/placeholder.png";
 
