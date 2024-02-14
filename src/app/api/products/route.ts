@@ -29,10 +29,13 @@ export const POST = async (req: Request) => {
 
   const body: { data: Product } = await req.json();
 
+  console.log(body.data);
+
   await axios
     .post<POSTResponse>("/api/products", {
       baseURL: baseURL,
-      data: { title: "Caixa de papelão", price: "9999" },
+      data: { title: "caixadepapelao", price: "9999" },
+      headers: { "Content-Type": "application/json" },
     })
     .then((data) => {
       response.data = data.data;
