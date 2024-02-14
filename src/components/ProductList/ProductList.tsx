@@ -7,6 +7,7 @@ import {
   ProductProps,
 } from "@/components/ProductList/Product/Product";
 import { ScrollContainer } from "react-indiana-drag-scroll";
+import { ProductModal } from "@/components/ProductModal/ProductModal";
 import { APIProduct } from "@/lib/product/api";
 
 export type ProductListProps = {
@@ -63,8 +64,11 @@ export const ProductList = ({}: ProductListProps) => {
               <span className="sm:flex">Status</span>
             </th>
             <th>
+              <span className="sm:flex">Quantidade</span>
+            </th>
+            <th>
               <span className="sm:border-r-[0.0625rem] sm:flex sm:rounded-r">
-                Quantidade
+                <ProductModal.NewProduct />
               </span>
             </th>
           </tr>

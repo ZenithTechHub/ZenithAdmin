@@ -3,6 +3,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { twMerge } from "tailwind-merge";
 
 export type SelectProps = React.ComponentProps<typeof Listbox> & {
+  hideLabel?: boolean;
   label: React.ReactNode;
   options: readonly string[];
   placeholder?: string;
@@ -16,6 +17,7 @@ export const Select = React.forwardRef<HTMLElement, SelectProps>(
     {
       as = "div",
       className,
+      hideLabel = true,
       label,
       options = [],
       placeholder = "Placeholder",
@@ -31,13 +33,21 @@ export const Select = React.forwardRef<HTMLElement, SelectProps>(
       {...props}
       as={as}
       className={twMerge(
-        "sm:flex sm:items-center sm:justify-center sm:relative sm:w-full",
+        "sm:flex sm:flex-col sm:gap-2 sm:items-start sm:justify-center sm:relative sm:w-full",
+        hideLabel === true && "sm:items-center",
         className,
       )}
       ref={ref}
       value={value}
     >
-      <Listbox.Label className="sm:absolute sm:h-0 sm:opacity-0 sm:overflow-hidden sm:w-0">
+      <Listbox.Label
+        className={twMerge(
+          "body-m",
+          "sm:text-white",
+          hideLabel === true &&
+            "sm:absolute sm:h-0 sm:opacity-0 sm:overflow-hidden sm:w-0",
+        )}
+      >
         {label}
       </Listbox.Label>
 

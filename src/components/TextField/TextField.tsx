@@ -5,6 +5,7 @@ export type TextFieldProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & {
+  hideLabel?: boolean;
   propsContainer?: React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
@@ -20,6 +21,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
       error,
       id: idProp,
       label,
+      hideLabel = true,
       propsContainer,
       type = "text",
       ...props
@@ -32,12 +34,18 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
       <div
         {...propsContainer}
         className={twMerge(
-          "sm:flex sm:flex-col sm:gap-2 sm:items-center sm:justify-center sm:relative sm:w-full",
+          "sm:flex sm:flex-col sm:gap-2 sm:items-start sm:justify-center sm:relative sm:w-full",
+          hideLabel === true && "sm:items-center",
           propsContainer?.className,
         )}
       >
         <label
-          className="sm:absolute sm:h-0 sm:opacity-0 sm:overflow-hidden sm:w-0"
+          className={twMerge(
+            "body-m",
+            "sm:text-white",
+            hideLabel === true &&
+              "sm:absolute sm:h-0 sm:opacity-0 sm:overflow-hidden sm:w-0",
+          )}
           htmlFor={id}
         >
           {label}
