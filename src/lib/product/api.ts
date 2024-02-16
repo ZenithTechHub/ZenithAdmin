@@ -1,12 +1,31 @@
 import axios from "axios";
 import { GETResponse, POSTBody, POSTResponse } from "@/app/api/products/route";
+import { DELETEResponse } from "@/app/api/products/[id]/route";
 import { Product } from "@/lib/product/schema";
+
+export type DELETEFunction = (id: Product["id"]) => Promise<Product>;
 
 export type GETFunction = (id?: Product["id"]) => Promise<Product[] | null>;
 
 export type POSTFunction = (data: POSTBody) => Promise<Product>;
 
 const baseURL = process.env.NEXT_PUBLIC_APP_BASE_URL;
+
+const DELETE: DELETEFunction = async (id) => {
+  const response = await fetch(`${baseURL}/api/products/${id}`, {
+    headers: { "Content-Type": "application/json" },
+    method: "DELETE",
+  });
+
+  const status = response.status as 200;
+
+  if (status === 200) {
+    const data = (await response.json()) as DELETEResponse["200"];
+    return data.data;
+  }
+
+  throw new Error("FATAL at - product.api.client");
+};
 
 const GET: GETFunction = async () => {
   const response: { data: GETResponse } = { data: null };
@@ -47,6 +66,7 @@ const POST: POSTFunction = async (product) => {
 };
 
 export const APIProduct = {
+  DELETE: DELETE,
   GET: GET,
   POST: POST,
 };

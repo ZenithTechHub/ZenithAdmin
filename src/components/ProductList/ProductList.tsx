@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useQuery } from "react-query";
 import { twMerge } from "tailwind-merge";
 import {
@@ -8,6 +9,7 @@ import {
 } from "@/components/ProductList/Product/Product";
 import { ScrollContainer } from "react-indiana-drag-scroll";
 import { ProductModal } from "@/components/ProductModal/ProductModal";
+import { DialogContext } from "@/contexts/DialogContext/DialogContext";
 import { APIProduct } from "@/lib/product/api";
 
 export type ProductListProps = {
@@ -15,7 +17,17 @@ export type ProductListProps = {
 };
 
 export const ProductList = ({}: ProductListProps) => {
-  const { data, status } = useQuery("products", () => APIProduct.GET());
+  const {
+    "modal-delete-product": modalDeleteProduct,
+    "popover-product": popoverProduct,
+  } = React.useContext(DialogContext);
+
+  const { data, status } = useQuery("products", () => APIProduct.GET(), {
+    onSuccess: () => {
+      modalDeleteProduct.setOpen(false);
+      popoverProduct.setOpen(false);
+    },
+  });
 
   if (status === "loading")
     return (
@@ -40,7 +52,7 @@ export const ProductList = ({}: ProductListProps) => {
         <thead
           className={twMerge(
             "heading-m",
-            "sm:h-fit sm:sticky sm:top-0 sm:w-full",
+            "sm:h-fit sm:sticky sm:top-0 sm:w-full sm:z-20",
             "sm:[&_span]:bg-dark-grey sm:[&_span]:border-[#828FA340] sm:[&_span]:border-b-[0.0625rem] sm:[&_span]:border-t-[0.0625rem] sm:[&_span]:flex-shrink-0 sm:[&_span]:h-10 sm:[&_span]:items-center sm:[&_span]:px-4",
             "sm:[&_th]:pb-1",
           )}

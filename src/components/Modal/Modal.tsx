@@ -5,15 +5,19 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ScrollContainer } from "react-indiana-drag-scroll";
 import { twMerge } from "tailwind-merge";
 
+type DialogDescription = React.ComponentProps<typeof Dialog.Description>;
+
 type DialogPanel = React.ComponentProps<typeof Dialog.Panel>;
 
 type DialogTitle = React.ComponentProps<typeof Dialog.Title>;
 
 export type ModalProps = React.ComponentProps<typeof Dialog> & {
+  description?: DialogDescription["children"];
   propsContent?: React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   >;
+  propsDescription?: DialogDescription;
   propsPanel?: DialogPanel;
   propsTitle?: DialogTitle;
   title: DialogTitle["children"];
@@ -21,7 +25,17 @@ export type ModalProps = React.ComponentProps<typeof Dialog> & {
 
 export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   (
-    { children, open, propsContent, propsPanel, propsTitle, title, ...props },
+    {
+      children,
+      description,
+      open,
+      propsDescription,
+      propsContent,
+      propsPanel,
+      propsTitle,
+      title,
+      ...props
+    },
     ref,
   ) => (
     <Transition
@@ -88,6 +102,19 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
               >
                 {title}
               </Dialog.Title>
+
+              {description !== undefined && (
+                <Dialog.Description
+                  {...propsDescription}
+                  className={twMerge(
+                    "body-l",
+                    "sm:flex-shrink-0 sm:text-left sm:text-white",
+                    propsDescription?.className,
+                  )}
+                >
+                  {description}
+                </Dialog.Description>
+              )}
 
               <div
                 {...propsContent}
