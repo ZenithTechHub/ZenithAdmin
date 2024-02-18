@@ -2,25 +2,27 @@
 
 import React from "react";
 import { PlusCircle } from "lucide-react";
-import { Controller } from "react-hook-form";
 import { useQueryClient, useMutation } from "react-query";
+import { toast } from "react-toastify";
 import { twMerge } from "tailwind-merge";
 import { Button } from "@/components/Button/Button";
 import { Modal } from "@/components/Modal/Modal";
-import { Select } from "@/components/Select/Select";
 import { TextField } from "@/components/TextField/TextField";
+import { DialogContext } from "@/contexts/DialogContext/DialogContext";
 import { useCreateProduct } from "@/hooks/useCreateProduct/useCreateProduct";
 import { APIProduct } from "@/lib/product/api";
 
 export const NewProduct = () => {
-  const [open, setOpen] = React.useState<boolean>(false);
+  const { "modal-new-product": modalNewProduct } =
+    React.useContext(DialogContext);
+
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation(APIProduct.POST, {
-    onSuccess: () => {
-      // Invalidate and refetch
-      queryClient.invalidateQueries("products");
+    onError: (error: Error) => {
+      toast.error(error.message, { autoClose: 2500 });
     },
+    onSuccess: () => queryClient.invalidateQueries("products"),
   });
 
   const { control, formState, handleSubmit, register, watch } =
@@ -33,15 +35,15 @@ export const NewProduct = () => {
           "sm:duration-standard sm:ease-standard sm:flex sm:h-fit sm:text-main-purple sm:transition-colors sm:w-fit",
           "sm:hover:text-main-purple-hover",
         )}
-        onClick={() => setOpen(true)}
+        onClick={() => modalNewProduct.setOpen(true)}
         type="button"
       >
         <PlusCircle className="sm:h-6 sm:w-6" />
       </button>
 
       <Modal
-        onClose={() => setOpen(false)}
-        open={open}
+        onClose={() => modalNewProduct.setOpen(false)}
+        open={modalNewProduct.open}
         title="Novo Produto"
       >
         <form

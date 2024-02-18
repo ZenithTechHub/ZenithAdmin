@@ -17,11 +17,21 @@ const DELETE: DELETEFunction = async (id) => {
     method: "DELETE",
   });
 
-  const status = response.status as 200;
+  const status = response.status as 200 | 409 | 422;
 
   if (status === 200) {
     const data = (await response.json()) as DELETEResponse["200"];
     return data.data;
+  }
+
+  if (status === 409) {
+    const data = (await response.json()) as DELETEResponse["409"];
+    throw new Error(data.errors.detail);
+  }
+
+  if (status === 422) {
+    const data = (await response.json()) as DELETEResponse["422"];
+    throw new Error(data.errors.detail);
   }
 
   throw new Error("FATAL at - product.api.client");

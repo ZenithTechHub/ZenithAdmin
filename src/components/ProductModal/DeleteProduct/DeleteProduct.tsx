@@ -1,5 +1,6 @@
 import React from "react";
 import { useMutation, useQueryClient } from "react-query";
+import { toast } from "react-toastify";
 import { twMerge } from "tailwind-merge";
 import { Button } from "@/components/Button/Button";
 import { Modal } from "@/components/Modal/Modal";
@@ -18,10 +19,10 @@ export const DeleteProduct = ({ id }: DeleteProductProps) => {
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation(APIProduct.DELETE, {
-    onSuccess: () => {
-      // Invalidate and refetch
-      queryClient.invalidateQueries("products");
+    onError: (error: Error) => {
+      toast.error(error.message);
     },
+    onSuccess: () => queryClient.invalidateQueries("products"),
   });
 
   return (

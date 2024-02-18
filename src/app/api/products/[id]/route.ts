@@ -4,6 +4,8 @@ const baseURL = process.env.API_BASE_URL;
 
 export type DELETEResponse = {
   200: { data: Product };
+  409: { errors: { detail: string } };
+  422: { errors: { detail: string } };
 };
 
 export const DELETE = async (
