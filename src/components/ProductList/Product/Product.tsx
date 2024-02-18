@@ -1,5 +1,6 @@
 import Image, { ImageProps } from "next/image";
 import { twMerge } from "tailwind-merge";
+import { ProductPopover } from "@/components/ProductPopover/ProductPopover";
 import { Product as ProductType } from "@/lib/product/schema";
 import { currency } from "@/utils/formater";
 import PNGPlaceholder from "#/PNG/placeholder.png";
@@ -9,6 +10,7 @@ export type ProductProps = ProductType & {};
 export const Product = ({
   active,
   description,
+  id,
   price,
   promotion_price,
   quantity_in_stock,
@@ -47,7 +49,7 @@ export const Product = ({
 
         {promotion_price !== null && (
           <strong className="sm:no-underline sm:text-white">
-            {currency(promotion_price)}
+            {currency(promotion_price || 0)}
           </strong>
         )}
       </span>
@@ -57,8 +59,12 @@ export const Product = ({
       <span className="sm:flex">{active}</span>
     </td>
     <td>
+      <span className="sm:flex">{quantity_in_stock}</span>
+    </td>
+
+    <td>
       <span className="sm:border-r-[0.0625rem] sm:flex sm:rounded-r">
-        {quantity_in_stock}
+        <ProductPopover id={id} />
       </span>
     </td>
   </tr>

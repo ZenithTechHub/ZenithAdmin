@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={twMerge(
           plusJakartaSans.variable,
-          "sm:grid sm:grid-cols-1 sm:grid-rows-1 sm:h-dvh sm:w-full",
+          "sm:grid sm:grid-cols-1 sm:grid-rows-1 sm:h-dvh sm:min-h-[30rem] sm:w-full",
           "md:grid-cols-[18.75rem_1fr]",
         )}
       >
