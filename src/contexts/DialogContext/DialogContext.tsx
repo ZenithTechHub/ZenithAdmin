@@ -6,6 +6,7 @@ type BasicModal = {
 };
 
 export type DialogContextObject = {
+  "modal-new-product": BasicModal;
   "modal-delete-product": BasicModal;
   "popover-product": BasicModal;
 };
@@ -23,6 +24,7 @@ export const DialogContextProvider = ({
 }: DialogContextProviderProps) => {
   const [modalDeleteProduct, setModalDeleteProduct] =
     React.useState<boolean>(false);
+  const [modalNewProduct, setModalNewProduct] = React.useState<boolean>(false);
   const [popoverProduct, setPopoverProduct] = React.useState<boolean>(false);
 
   return (
@@ -31,6 +33,10 @@ export const DialogContextProvider = ({
         "modal-delete-product": {
           open: modalDeleteProduct,
           setOpen: setModalDeleteProduct,
+        },
+        "modal-new-product": {
+          open: modalNewProduct,
+          setOpen: setModalNewProduct,
         },
         "popover-product": { open: popoverProduct, setOpen: setPopoverProduct },
       }}

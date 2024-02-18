@@ -1,7 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import { Filters } from "@/components/Filters/Filters";
 import { ProductList } from "@/components/ProductList/ProductList";
-import { products } from "@/lib/mock";
 
 const Products = async () => {
   return (
@@ -13,7 +12,7 @@ const Products = async () => {
     >
       <Filters />
 
-      <ProductList products={products} />
+      <ProductList />
     </main>
   );
 };

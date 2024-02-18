@@ -44,6 +44,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     >
       <Dialog
         {...props}
+        className="sm:z-50"
         ref={ref}
       >
         <Transition.Child
@@ -61,13 +62,13 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         >
           <div
             aria-hidden
-            className="sm:bg-[#00000080] sm:fixed sm:inset-0"
+            className="sm:bg-[#00000080] sm:fixed sm:inset-0 sm:z-50"
           />
         </Transition.Child>
 
         <div
           className={twMerge(
-            "sm:fixed sm:flex sm:inset-0 sm:items-center sm:justify-center sm:p-4 sm:w-screen",
+            "sm:fixed sm:flex sm:inset-0 sm:items-center sm:justify-center sm:p-4 sm:w-screen sm:z-50",
             "md:p-6",
           )}
         >

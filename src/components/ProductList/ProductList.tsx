@@ -12,19 +12,17 @@ import { ProductModal } from "@/components/ProductModal/ProductModal";
 import { DialogContext } from "@/contexts/DialogContext/DialogContext";
 import { APIProduct } from "@/lib/product/api";
 
-export type ProductListProps = {
-  products: ProductProps[];
-};
-
-export const ProductList = ({}: ProductListProps) => {
+export const ProductList = () => {
   const {
     "modal-delete-product": modalDeleteProduct,
+    "modal-new-product": modalNewProduct,
     "popover-product": popoverProduct,
   } = React.useContext(DialogContext);
 
   const { data, status } = useQuery("products", () => APIProduct.GET(), {
     onSuccess: () => {
       modalDeleteProduct.setOpen(false);
+      modalNewProduct.setOpen(false);
       popoverProduct.setOpen(false);
     },
   });
@@ -33,7 +31,6 @@ export const ProductList = ({}: ProductListProps) => {
     return (
       <ScrollContainer className="sm:flex sm:h-full sm:items-center sm:justify-center sm:select-none sm:w-full">
         <span className="sm:loading sm:loading-ring sm:text-white sm:w-16"></span>
-        ;
       </ScrollContainer>
     );
 

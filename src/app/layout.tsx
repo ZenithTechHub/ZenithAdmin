@@ -5,6 +5,7 @@ import { LayoutClient } from "@/app/LayoutClient";
 import { Header } from "@/components/Header/Header";
 import { SideBar } from "@/components/SideBar/SideBar";
 import "react-indiana-drag-scroll/dist/style.css";
+import "react-toastify/dist/ReactToastify.css";
 import "@/app/globals.css";
 import "@/app/typography.css";
 
