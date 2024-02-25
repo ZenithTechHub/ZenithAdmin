@@ -49,7 +49,7 @@ export const ProductList = () => {
         <thead
           className={twMerge(
             "heading-m",
-            "sm:h-fit sm:sticky sm:top-0 sm:w-full sm:z-20",
+            "sm:h-fit sm:sticky sm:top-0 sm:w-full sm:z-[1]",
             "sm:[&_span]:bg-dark-grey sm:[&_span]:border-[#828FA340] sm:[&_span]:border-b-[0.0625rem] sm:[&_span]:border-t-[0.0625rem] sm:[&_span]:flex-shrink-0 sm:[&_span]:h-10 sm:[&_span]:items-center sm:[&_span]:px-4",
             "sm:[&_th]:pb-1",
           )}

@@ -37,11 +37,11 @@ const DELETE: DELETEFunction = async (id) => {
   throw new Error("FATAL at - product.api.client");
 };
 
-const GET: GETFunction = async () => {
+const GET: GETFunction = async (id) => {
   const response: { data: GETResponse } = { data: null };
 
   await axios
-    .get<GETResponse>("/api/products", { baseURL: baseURL })
+    .get<GETResponse>(`/api/products/${id || ""}`, { baseURL: baseURL })
     .then((data) => (response.data = data.data))
     .catch((error) => {
       response.data = null;
