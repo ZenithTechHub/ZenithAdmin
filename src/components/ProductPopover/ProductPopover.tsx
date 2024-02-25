@@ -51,6 +51,7 @@ export const ProductPopover = ({
             )}
             static
           >
+            <ProductModal.ProductInformation id={id} />
             <ProductModal.DeleteProduct id={id} />
           </Popover.Panel>
         </Transition.Child>

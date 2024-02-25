@@ -26,3 +26,22 @@ export const DELETE = async (
     statusText: response.statusText,
   });
 };
+
+export const GET = async (
+  request: Request,
+  { params }: { params: { id: string } },
+) => {
+  const { id } = params;
+
+  const response = await fetch(`${baseURL}/api/products/${id}`, {
+    headers: { "Content-Type": "application/json" },
+    method: "GET",
+  });
+
+  const data = await response.json();
+
+  return Response.json(data, {
+    status: response.status,
+    statusText: response.statusText,
+  });
+};
